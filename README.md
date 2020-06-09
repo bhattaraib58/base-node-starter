@@ -1,2 +1,3 @@
-# fetch-task-performed-
-Fetch Your Task Performed for the day in github
+# Base Node Starter
+
+Base Node Starter File with Babel, Leapfrog Eslint and Prettier Configuration
