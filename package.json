@@ -1,23 +1,15 @@
 {
-  "name": "fetch-task-performed",
+  "name": "base-node-starter",
   "version": "0.0.1",
-  "description": "Fetch Your Task Performed for the day in github",
+  "description": "Base Node Starter Package with Leapfrog Lint and Prettier",
   "main": "index.js",
   "author": "Biplap Bhattarai <bhattaraib58@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bhattaraib58/fetch-task-performed.git"
+    "url": "git+https://github.com/bhattaraib58/base-node-starter.git.git"
   },
-  "keywords": [
-    "Fetch Task Performed For day",
-    "Fetch your work done",
-    "Jira Task",
-    "ClickUp Task",
-    "GitHub Task",
-    "GitLab Task",
-    "BitBucket Task"
-  ],
+  "keywords": [],
   "scripts": {
     "start": "node dist/index.js",
     "start:dev": "nodemon --watch .env --watch src --exec babel-node src --source-maps",
