@@ -1,0 +1,10 @@
+# Build directory
+dist
+build
+
+# Test directory
+test
+
+# Other directories
+src/seeds
+src/migrations
