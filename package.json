@@ -14,23 +14,27 @@
     "start": "node dist/index.js",
     "start:dev": "nodemon --watch .env --watch src --exec babel-node src --source-maps",
     "build": "rimraf dist && babel src -D --out-dir dist",
-    "eslint": "eslint src",
-    "eslint:fix": "eslint --fix src",
-    "prettier": "prettier --write \"src/**/*.js\"",
-    "lint": "yarn prettier && eslint src ; exit 0",
-    "lint:fix": "yarn prettier && eslint src  --fix; exit 0"
+    "eslint": "eslint \"{src,api,public}/**/*.{js,jsx}\"",
+    "eslint:fix": "eslint --fix \"{src,api,public}/**/*.{js,jsx}\"",
+    "lint": "yarn prettier && yarn eslint",
+    "lint:fix": "yarn prettier:fix && yarn eslint:fix",
+    "prettier": "prettier --list-different \"{src,api,public}/**/*.{js,jsx,html,css,md,yml,yml,json}\" --loglevel warn",
+    "prettier:fix": "prettier --write \"{src,api,public}/**/*.{js,jsx,html,css,md,yml,yml,json}\" --loglevel warn",
+    "changelog": "./release.sh changelog",
+    "release": "./release.sh bump"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn lint:fix"
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,jsx}": [
       "eslint --fix",
       "prettier --write"
     ],
-    "*.{md,yml,yml,json,css}": [
+    "*.{html,css,md,yml,yml,json}": [
       "prettier --write"
     ]
   },
@@ -39,17 +43,18 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.1",
+    "@babel/core": "^7.11.6",
     "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.11.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^7.7.0",
     "eslint-config-leapfrog": "^3.0.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "rimraf": "^3.0.2"
   },
   "engines": {
