@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { version, name } from '../package.json';
 
 const config = {
